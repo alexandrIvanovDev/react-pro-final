@@ -1,8 +1,5 @@
-import { useAppDispatch, useAppSelector } from '../../../store/utils';
-import {
-	productsActions,
-	productsSelectors,
-} from '../../../store/slices/products';
+import { productsActions, productsSelectors } from '../store/slices/products';
+import { useAppDispatch, useAppSelector } from '../store/utils';
 
 interface SortParams {
 	title: string;
@@ -40,5 +37,6 @@ export const useSort = () => {
 			href: '#',
 		},
 	];
+
 	return { sort, setSort, sortParams };
 };

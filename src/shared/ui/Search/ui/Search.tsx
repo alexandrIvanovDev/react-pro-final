@@ -1,11 +1,13 @@
 import s from './Search.module.css';
-import { useProductsSearchForm } from '../hooks/usePostsSearchForm';
 
-export const Search = () => {
-	const { searchValue, setSearchValue } = useProductsSearchForm();
+type Props = {
+	value: string;
+	setValue: (value: string) => void;
+};
 
+export const Search = ({ value, setValue }: Props) => {
 	const handleClearSearchText = () => {
-		setSearchValue('');
+		setValue('');
 	};
 
 	return (
@@ -14,10 +16,10 @@ export const Search = () => {
 				type='text'
 				className={s['search__input']}
 				placeholder='Поиск'
-				value={searchValue}
-				onChange={(e) => setSearchValue(e.target.value)}
+				value={value}
+				onChange={(e) => setValue(e.target.value)}
 			/>
-			{searchValue.length > 0 && (
+			{value.length > 0 && (
 				<button className={s['search__btn']} onClick={handleClearSearchText}>
 					<svg
 						width='24'

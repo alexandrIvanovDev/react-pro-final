@@ -119,4 +119,10 @@ declare global {
 	type Token = {
 		accessToken: string;
 	};
+
+	type SortParams = {
+		title: string;
+		value: Sort;
+		href: string;
+	};
 }

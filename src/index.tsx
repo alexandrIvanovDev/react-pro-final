@@ -1,8 +1,9 @@
-import { createRoot } from 'react-dom/client';
 import { StrictMode } from 'react';
-import { RouterProvider } from 'react-router-dom';
-import { router } from './shared/providers/router';
+import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
+import { RouterProvider } from 'react-router-dom';
+
+import { router } from './app/providers/router';
 import { store } from './shared/store/store';
 
 const domNode = document.getElementById('root') as HTMLDivElement;
