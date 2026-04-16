@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { useState, ChangeEvent } from 'react';
-import { Rating } from '../../../../shared/ui/Rating';
+import { Rating } from '@/shared/ui/Rating';
+
 import s from './ReviewForm.module.css';
 
 export const ReviewForm = () => {

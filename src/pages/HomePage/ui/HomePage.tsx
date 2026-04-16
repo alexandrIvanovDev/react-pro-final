@@ -1,10 +1,11 @@
 import { useRef } from 'react';
-import { useLoadMore } from '../../../shared/hooks/useLoadMore';
-import { WithProtection } from '../../../shared/store/HOCs/WithProtection';
-import { WithQuery } from '../../../shared/store/HOCs/WithQuery';
-import { useProducts } from '../../../shared/store/hooks/useProducts';
-import { LoadMore } from '../../../shared/ui/LoadMore';
-import { CardList } from '../../../widgets/CardList';
+
+import { CardList } from '@/widgets/CardList';
+import { useLoadMore } from '@/shared/hooks/useLoadMore';
+import { WithProtection } from '@/shared/store/HOCs/WithProtection';
+import { WithQuery } from '@/shared/store/HOCs/WithQuery';
+import { useProducts } from '@/shared/store/hooks/useProducts';
+import { LoadMore } from '@/shared/ui/LoadMore';
 
 const CardListWithQuery = WithQuery(CardList);
 

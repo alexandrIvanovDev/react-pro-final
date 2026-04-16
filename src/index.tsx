@@ -3,11 +3,11 @@ import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
 
-import { router } from './app/providers/router';
-import { store } from './shared/store/store';
+import { router, store } from './app';
 
 const domNode = document.getElementById('root') as HTMLDivElement;
 const root = createRoot(domNode);
+
 root.render(
 	<StrictMode>
 		<Provider store={store}>

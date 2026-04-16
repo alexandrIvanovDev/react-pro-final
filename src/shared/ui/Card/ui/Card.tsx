@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 
+import { Price } from '@/shared/ui/';
 import { useAddToCart } from '../../../hooks/useAddToCart';
 import { useCartCount } from '../../../hooks/useCartCount';
 import { useToggleLike } from '../../../hooks/useToggleLike';
@@ -8,7 +9,6 @@ import { cartSelectors } from '../../../store/slices/cart';
 import { useAppSelector } from '../../../store/utils';
 import { CartCounter } from '../../CartCounter';
 import { LikeButton } from '../../LikeButton';
-import { Price } from '../../Price/ui/Price';
 import s from './Card.module.css';
 
 type CardProps = {

@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import AppApi from '../api/ApiServise';
-import { authApi } from '../../features/auth/model/authApi';
-import { productsApi } from './api/productsApi';
-import { rootReducer } from './reducers/rootReducer';
+import { authApi } from '@/features/auth';
+import AppApi from '@/shared/api/ApiServise';
+import { productsApi } from '@/shared/store/api/productsApi';
+
+import { rootReducer } from './rootReducer';
 
 export const store = configureStore({
 	reducer: rootReducer,
