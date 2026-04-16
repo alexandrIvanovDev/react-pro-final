@@ -1,6 +1,7 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
-import { SignUpFormValues } from '../../../widgets/SignUpForm/utils/types';
-import { customBaseQuery } from './config';
+
+import { customBaseQuery } from '@/shared/store/api/config';
+import type { AuthFormValues } from './types';
 
 type SignUpResponse = {
 	user: Pick<User, 'id' | 'email'>;
@@ -16,14 +17,14 @@ export const authApi = createApi({
 	reducerPath: 'authApi',
 	baseQuery: customBaseQuery,
 	endpoints: (builder) => ({
-		signUp: builder.mutation<SignUpResponse, SignUpFormValues>({
+		signUp: builder.mutation<SignUpResponse, AuthFormValues>({
 			query: (signUpFormValues) => ({
 				url: '/auth/register',
 				method: 'POST',
 				body: signUpFormValues,
 			}),
 		}),
-		signIn: builder.mutation<SignInResponse, SignUpFormValues>({
+		signIn: builder.mutation<SignInResponse, AuthFormValues>({
 			query: (signInFormValues) => ({
 				url: '/auth/login',
 				method: 'POST',

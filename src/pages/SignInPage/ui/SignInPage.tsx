@@ -3,9 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import { SignInForm } from '@/features/SignInForm';
-import { SignInFormValues } from '@/features/SignInForm/model/types';
-import { useSignInMutation } from '@/shared/store/api/authApi';
+import { AuthFormValues, SignInForm, useSignInMutation } from '@/features/auth';
 import { WithProtection } from '@/shared/store/HOCs/WithProtection';
 import { userActions } from '@/shared/store/slices/user';
 import { getMessageFromError } from '@/shared/utils';
@@ -16,7 +14,7 @@ export const SignInPage = WithProtection(() => {
 	const navigate = useNavigate();
 	const [signInRequestFn] = useSignInMutation();
 
-	const submitHandler: SubmitHandler<SignInFormValues> = async (values) => {
+	const submitHandler: SubmitHandler<AuthFormValues> = async (values) => {
 		try {
 			const response = await signInRequestFn(values).unwrap();
 

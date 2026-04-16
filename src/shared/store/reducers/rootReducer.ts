@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { authApi } from '../api/authApi';
+import { authApi } from '../../../features/auth/model/authApi';
 import { productsApi } from '../api/productsApi';
 import { cartSlice } from '../slices/cart';
 import { productsSlice } from '../slices/products';

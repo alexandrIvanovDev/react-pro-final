@@ -10,26 +10,26 @@ import {
 	Typography,
 } from '@mui/material';
 import { Controller, useForm } from 'react-hook-form';
-
 import { Link as RouterLink } from 'react-router-dom';
-import { SignInFormValues } from '../model/types';
-import { signInFormSchema } from '../model/validator';
+
+import type { AuthFormValues } from '../model/types';
+import { signUpFormSchema } from '../model/validator';
 
 type Props = {
-	onSubmit: (data: SignInFormValues) => void;
+	onSubmit: (data: AuthFormValues) => void;
 };
 
-export const SignInForm = ({ onSubmit }: Props) => {
+export const SignUpForm = ({ onSubmit }: Props) => {
 	const {
 		control,
 		handleSubmit,
 		formState: { errors, isValid, isSubmitting, isSubmitted },
-	} = useForm<SignInFormValues>({
+	} = useForm<AuthFormValues>({
 		defaultValues: {
 			email: '',
 			password: '',
 		},
-		resolver: yupResolver(signInFormSchema),
+		resolver: yupResolver(signUpFormSchema),
 	});
 
 	return (
@@ -45,13 +45,16 @@ export const SignInForm = ({ onSubmit }: Props) => {
 					<LockOutlinedIcon />
 				</Avatar>
 				<Typography component='h1' variant='h5'>
-					Sign In
+					Sign Up
 				</Typography>
 				<Box
 					component='form'
 					onSubmit={handleSubmit(onSubmit)}
 					noValidate
-					sx={{ my: 1 }}>
+					sx={{ mt: 1 }}>
+					{/* Чтобы подружить react-hook-form с MUI используем компонент Controller
+              смотри доку https://react-hook-form.com/get-started#IntegratingwithUIlibraries
+           */}
 					<Controller
 						name='email'
 						control={control}
@@ -88,16 +91,18 @@ export const SignInForm = ({ onSubmit }: Props) => {
 
 					<LoadingButton
 						type='submit'
+						// кнопка становится недоступной после первой валидации (если есть ошибки)
+						// или когда выполняется отправка (чтобы не дать пользователю отправить форму несколько раз)
 						disabled={isSubmitted && (!isValid || isSubmitting)}
 						loading={isSubmitting}
 						fullWidth
 						variant='contained'
 						sx={{ mt: 3, mb: 2 }}>
-						Sign IN
+						Sign Up
 					</LoadingButton>
 					<Box display='flex' justifyContent='center' flexGrow={1}>
-						<Link component={RouterLink} to='/signup'>
-							SIGN UP
+						<Link component={RouterLink} to='/signin'>
+							SIGN IN
 						</Link>
 					</Box>
 				</Box>

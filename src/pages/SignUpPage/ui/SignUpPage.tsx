@@ -2,9 +2,8 @@ import { SubmitHandler } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { SignUpForm } from '@/features/SignUpForm';
-import { SignUpFormValues } from '@/features/SignUpForm/model/types';
-import { useSignUpMutation } from '@/shared/store/api/authApi';
+
+import { AuthFormValues, SignUpForm, useSignUpMutation } from '@/features/auth';
 import { WithProtection } from '@/shared/store/HOCs/WithProtection';
 import { userActions } from '@/shared/store/slices/user';
 import { getMessageFromError } from '@/shared/utils';
@@ -14,7 +13,7 @@ export const SignUpPage = WithProtection(() => {
 	const navigate = useNavigate();
 	const [signUpRequestFn] = useSignUpMutation();
 
-	const submitHandler: SubmitHandler<SignUpFormValues> = async (values) => {
+	const submitHandler: SubmitHandler<AuthFormValues> = async (values) => {
 		try {
 			const response = await signUpRequestFn(values).unwrap();
 
