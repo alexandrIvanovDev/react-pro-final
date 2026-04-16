@@ -1,12 +1,13 @@
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
+
+import { Search } from '@/features/search';
 import { ReactComponent as UserSvg } from '@/shared/assets/icons/user.svg';
-import { useProductsSearchForm } from '@/shared/hooks/useProductsSearchForm';
 import { useProducts } from '@/shared/store/hooks/useProducts';
 import { cartSelectors } from '@/shared/store/slices/cart';
 import { userSelectors } from '@/shared/store/slices/user';
 import { useAppSelector } from '@/shared/store/utils';
-import { Search, Logo } from '@/shared/ui';
+import { Logo } from '@/shared/ui';
 import { isLiked } from '@/shared/utils';
 
 import s from './Header.module.css';
@@ -15,8 +16,6 @@ export const Header = () => {
 	const { products } = useProducts();
 	const user = useAppSelector(userSelectors.getUser);
 	const cartProducts = useAppSelector(cartSelectors.getCartProducts);
-
-	const { searchValue, setSearchValue } = useProductsSearchForm();
 
 	const likeCount = products.filter((product) =>
 		isLiked(product.likes, user?.id)
@@ -31,7 +30,7 @@ export const Header = () => {
 
 				{accessToken && (
 					<>
-						<Search value={searchValue} setValue={setSearchValue} />
+						<Search />
 						<div className={s['header__icons-menu']}>
 							<Link className={s['header__favorites-link']} to='/favorites'>
 								<svg

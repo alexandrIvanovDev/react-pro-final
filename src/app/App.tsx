@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { Footer } from '@/widgets/Footer';
 import { Header } from '@/widgets/Header';
-import { Sort } from '@/shared/ui/Sort';
+import { Sort } from '@/features/sort';
 
 import './styles/normalize.css';
 import './styles/styles.css';
