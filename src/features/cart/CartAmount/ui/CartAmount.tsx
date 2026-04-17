@@ -1,9 +1,11 @@
 import classNames from 'classnames';
-import s from '../../CartPage.module.css';
+
+import s from './CartAmount.module.css';
 
 type CartAmountProps = {
 	products: CartProduct[];
 };
+
 export const CartAmount = ({ products }: CartAmountProps) => {
 	const allPrice = products.reduce((acc, p) => p.price * p.count + acc, 0);
 	const allDiscount = products.reduce(

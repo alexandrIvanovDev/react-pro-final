@@ -1,24 +1,21 @@
 import classNames from 'classnames';
-import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { useCartCount } from '@/shared/hooks/useCartCount';
-import { ReactComponent as TrashIcon } from '../../../../../shared/assets/icons/trash.svg';
-import { cartActions } from '../../../../../shared/store/slices/cart';
-import { CartCounter } from '../../../../../shared/ui/CartCounter';
-import s from '../../CartPage.module.css';
+
+import { CartCounter } from '@/features/cart';
+import { ReactComponent as TrashIcon } from '@/shared/assets/icons/trash.svg';
+
+import s from './CartItem.module.css';
 
 type CartItemProps = {
 	product: CartProduct;
+	deleteProductFromCart: (id: string) => void;
 };
-export const CartItem = ({ product }: CartItemProps) => {
-	const dispatch = useDispatch();
+
+export const CartItem = ({ product, deleteProductFromCart }: CartItemProps) => {
 	const { id, name, images, price, discount } = product;
 
-	const { count, stock, handleSetCount, handleIncrement, handleDecrement } =
-		useCartCount(id);
-
 	const handleDelete = () => {
-		dispatch(cartActions.deleteCartProduct(id));
+		deleteProductFromCart(id);
 	};
 
 	return (
@@ -39,13 +36,7 @@ export const CartItem = ({ product }: CartItemProps) => {
 						</Link>
 
 						<div style={{ display: 'flex', flexDirection: 'column' }}>
-							<CartCounter
-								count={count}
-								stock={stock}
-								handleSetCount={handleSetCount}
-								handleIncrement={handleIncrement}
-								handleDecrement={handleDecrement}
-							/>
+							<CartCounter id={id} />
 
 							<div className={classNames(s['cart-item__price'])}>
 								<div className={classNames(s['price-big'], s['price-wrap'])}>
