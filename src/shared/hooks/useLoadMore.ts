@@ -4,7 +4,7 @@ import { productsActions, productsSelectors } from '../store/slices/products';
 import { useAppDispatch, useAppSelector } from '../store/utils';
 
 interface UseLoadMoreParams {
-	ref: RefObject<HTMLDivElement>;
+	ref: React.Ref<any>;
 }
 export const useLoadMore = ({ ref }: UseLoadMoreParams) => {
 	const dispatch = useAppDispatch();
@@ -32,7 +32,9 @@ export const useLoadMore = ({ ref }: UseLoadMoreParams) => {
 				}
 			};
 			observer = new IntersectionObserver(callback, options);
-			ref.current && observer.observe(ref.current);
+			if (ref && typeof ref !== 'function' && ref.current) {
+				ref?.current && observer.observe(ref?.current);
+			}
 		}
 
 		return () => {

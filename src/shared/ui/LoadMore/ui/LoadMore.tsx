@@ -2,7 +2,7 @@ import { Alert, CircularProgress, Stack } from '@mui/material';
 import { RefObject } from 'react';
 
 type Props = {
-	ref: RefObject<HTMLDivElement>;
+	ref: React.Ref<HTMLDivElement>;
 	isFetching: boolean;
 	isEndOfList: boolean;
 };

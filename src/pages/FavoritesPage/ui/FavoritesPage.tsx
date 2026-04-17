@@ -1,4 +1,4 @@
-import { CardList } from '@/widgets/CardList';
+import { CardList } from '@/entities/card';
 import { WithQuery } from '@/shared/store/HOCs/WithQuery';
 import { useProducts } from '@/shared/store/hooks/useProducts';
 import { ButtonBack } from '@/shared/ui';

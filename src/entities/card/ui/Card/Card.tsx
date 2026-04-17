@@ -2,8 +2,7 @@ import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 
 import { CartCounter } from '@/features/cart';
-import { cartSelectors } from '@/entities/cart';
-import { useAddToCart } from '@/shared/hooks/useAddToCart';
+import { cartSelectors, useAddToCart } from '@/entities/cart';
 
 import { useToggleLike } from '@/shared/hooks/useToggleLike';
 import { useAppSelector } from '@/shared/store/utils';
@@ -22,6 +21,9 @@ export const Card = ({ product }: CardProps) => {
 	const { addProductToCart } = useAddToCart();
 
 	const { toggleLike, isLike } = useToggleLike({ product });
+
+	console.log('isLike', isLike);
+	console.log('product', product);
 
 	if (!id) return null;
 

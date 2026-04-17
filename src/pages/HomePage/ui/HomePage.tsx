@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 
-import { CardList } from '@/widgets/CardList';
+import { Sort } from '@/features/sort';
+import { CardList } from '@/entities/card';
 import { useLoadMore } from '@/shared/hooks/useLoadMore';
 import { WithQuery } from '@/shared/store/HOCs/WithQuery';
 import { useProducts } from '@/shared/store/hooks/useProducts';
@@ -11,11 +12,13 @@ const CardListWithQuery = WithQuery(CardList);
 export const HomePage = () => {
 	const { products, isLoading, isError, error } = useProducts();
 
-	const ref = useRef<HTMLDivElement>(null);
+	const ref = useRef<React.Ref<any>>(null);
+
 	const { isEndOfList, isFetching } = useLoadMore({ ref });
 
 	return (
 		<>
+			<Sort />
 			<CardListWithQuery
 				title='Лакомства'
 				isLoading={isLoading}
@@ -23,7 +26,12 @@ export const HomePage = () => {
 				products={products}
 				error={error}
 			/>
-			<LoadMore ref={ref} isFetching={isFetching} isEndOfList={isEndOfList} />
+
+			<LoadMore
+				ref={ref as React.Ref<HTMLDivElement>}
+				isFetching={isFetching}
+				isEndOfList={isEndOfList}
+			/>
 		</>
 	);
 };

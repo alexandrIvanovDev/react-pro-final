@@ -42,5 +42,6 @@ module.exports = {
 		'react/react-in-jsx-scope': 'off',
 		'@typescript-eslint/explicit-module-boundary-types': 'off',
 		'import/no-internal-modules': 'off',
+		'@typescript-eslint/ban-ts-comment': 'off',
 	},
 };
