@@ -8,3 +8,4 @@ export { Price } from './Price';
 export { ProductCartCounter } from './ProductCartCounter';
 export { Rating } from './Rating';
 export { Spinner } from './Spinner';
+export { Modal } from './Modal';
