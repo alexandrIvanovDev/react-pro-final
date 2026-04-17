@@ -1,4 +1,4 @@
-import { cartActions } from '../store/slices/cart';
+import { cartActions } from '@/entities/cart';
 import { useAppDispatch } from '../store/utils';
 
 export const useAddToCart = () => {

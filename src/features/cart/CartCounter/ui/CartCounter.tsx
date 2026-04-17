@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import { useCartCount } from '@/shared/hooks/useCartCount';
+import { useCartCount } from '../model/useCartCount';
 import s from './CartCounter.module.css';
 
 type Props = {

@@ -4,12 +4,12 @@ import { ReviewList } from '@/widgets/ReviewList/ui/ReviewList';
 import { CartCounter } from '@/features/cart';
 
 import { ProductCartCounter } from '@/features/product/ProductCartCounter';
+import { cartSelectors } from '@/entities/cart';
 import qualitySVG from '@/shared/assets/icons/quality.svg';
 import truckSVG from '@/shared/assets/icons/truck.svg';
 import { useAddToCart } from '@/shared/hooks/useAddToCart';
 import { useToggleLike } from '@/shared/hooks/useToggleLike';
 import { useGetProductQuery } from '@/shared/store/api/productsApi';
-import { cartSelectors } from '@/shared/store/slices/cart';
 import { useAppSelector } from '@/shared/store/utils';
 import { LikeButton, ButtonBack, Rating } from '@/shared/ui';
 import s from './ProductPage.module.css';

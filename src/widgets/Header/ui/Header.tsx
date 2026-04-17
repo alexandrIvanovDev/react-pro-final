@@ -2,10 +2,10 @@ import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 
 import { Search } from '@/features/search';
+import { cartSelectors } from '@/entities/cart';
 import { userSelectors } from '@/entities/user';
 import { ReactComponent as UserSvg } from '@/shared/assets/icons/user.svg';
 import { useProducts } from '@/shared/store/hooks/useProducts';
-import { cartSelectors } from '@/shared/store/slices/cart';
 import { useAppSelector } from '@/shared/store/utils';
 import { Logo } from '@/shared/ui';
 import { isLiked } from '@/shared/utils';

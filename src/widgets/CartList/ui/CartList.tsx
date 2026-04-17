@@ -1,9 +1,8 @@
 import classNames from 'classnames';
 
 import { useDispatch } from 'react-redux';
-import { CartItem } from '@/entities/CartItem';
 
-import { cartActions } from '@/shared/store/slices/cart';
+import { cartActions, CartItem } from '@/entities/cart';
 
 import s from './CartList.module.css';
 
