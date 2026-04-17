@@ -12,26 +12,24 @@ export const CartCounter = ({ id }: Props) => {
 		useCartCount(id);
 
 	return (
-		<>
-			<div className={classNames(s['button-count'])}>
-				<button
-					onClick={handleDecrement}
-					className={classNames(s['button-count__minus'])}>
-					-
-				</button>
-				<input
-					onChange={handleSetCount}
-					type='number'
-					className={classNames(s['button-count__num'])}
-					value={count}
-				/>
-				<button
-					onClick={handleIncrement}
-					className={classNames(s['button-count__plus'])}
-					disabled={count >= stock}>
-					+
-				</button>
-			</div>
-		</>
+		<div className={classNames(s['button-count'])}>
+			<button
+				onClick={handleDecrement}
+				className={classNames(s['button-count__minus'])}>
+				-
+			</button>
+			<input
+				onChange={handleSetCount}
+				type='number'
+				className={classNames(s['button-count__num'])}
+				value={count}
+			/>
+			<button
+				onClick={handleIncrement}
+				className={classNames(s['button-count__plus'])}
+				disabled={count >= stock}>
+				+
+			</button>
+		</div>
 	);
 };
