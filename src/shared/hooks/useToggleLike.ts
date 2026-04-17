@@ -1,10 +1,10 @@
 import { toast } from 'react-toastify';
+import { userSelectors } from '@/entities/user';
 import {
 	IErrorResponse,
 	useDeleteLikeProductMutation,
 	useSetLikeProductMutation,
 } from '../store/api/productsApi';
-import { userSelectors } from '../store/slices/user';
 import { useAppSelector } from '../store/utils';
 
 type Props = {

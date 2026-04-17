@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { AuthFormValues, SignUpForm, useSignUpMutation } from '@/features/auth';
-import { userActions } from '@/shared/store/slices/user';
+import { userActions } from '@/entities/user';
 import { getMessageFromError } from '@/shared/utils';
 
 export const SignUpPage = () => {
