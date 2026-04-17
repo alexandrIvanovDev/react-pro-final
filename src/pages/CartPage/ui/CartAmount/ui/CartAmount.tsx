@@ -1,5 +1,5 @@
-import s from '../../CartPage.module.css';
 import classNames from 'classnames';
+import s from '../../CartPage.module.css';
 
 type CartAmountProps = {
 	products: CartProduct[];

@@ -1,21 +1,30 @@
 import classNames from 'classnames';
-import s from './Card.module.css';
-import { Price } from './Price/ui/Price';
 import { Link } from 'react-router-dom';
-import { LikeButton } from '../../LikeButton';
-import { useAppSelector } from '../../../store/utils';
-import { cartSelectors } from '../../../store/slices/cart';
+
+import { Price } from '@/shared/ui/';
 import { useAddToCart } from '../../../hooks/useAddToCart';
+import { useCartCount } from '../../../hooks/useCartCount';
+import { useToggleLike } from '../../../hooks/useToggleLike';
+import { cartSelectors } from '../../../store/slices/cart';
+import { useAppSelector } from '../../../store/utils';
 import { CartCounter } from '../../CartCounter';
+import { LikeButton } from '../../LikeButton';
+import s from './Card.module.css';
 
 type CardProps = {
 	product: Product;
 };
+
 export const Card = ({ product }: CardProps) => {
 	const { discount, price, name, tags, id, images } = product;
 	const cartProducts = useAppSelector(cartSelectors.getCartProducts);
 	const isProductInCart = cartProducts.some((p) => p.id === id);
 	const { addProductToCart } = useAddToCart();
+
+	const { toggleLike, isLike } = useToggleLike({ product });
+
+	const { count, stock, handleSetCount, handleIncrement, handleDecrement } =
+		useCartCount(id);
 
 	return (
 		<article className={s['card']}>
@@ -37,7 +46,7 @@ export const Card = ({ product }: CardProps) => {
 					s['card__sticky'],
 					s['card__sticky_type_top-right']
 				)}>
-				<LikeButton product={product} />
+				<LikeButton isLike={isLike} toggleLike={toggleLike} />
 			</div>
 			<Link className={s['card__link']} to={`/products/${id}`}>
 				<img
@@ -52,7 +61,13 @@ export const Card = ({ product }: CardProps) => {
 				</div>
 			</Link>
 			{isProductInCart ? (
-				<CartCounter productId={id} />
+				<CartCounter
+					count={count}
+					stock={stock}
+					handleSetCount={handleSetCount}
+					handleIncrement={handleIncrement}
+					handleDecrement={handleDecrement}
+				/>
 			) : (
 				<button
 					onClick={() => addProductToCart({ ...product, count: 1 })}

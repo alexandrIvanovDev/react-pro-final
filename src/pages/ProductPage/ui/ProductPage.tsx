@@ -1,18 +1,22 @@
-import s from './ProductPage.module.css';
-import { useLocation } from 'react-router-dom';
 import classNames from 'classnames';
-import truckSVG from '../../../shared/assets/icons/truck.svg';
+import { useLocation } from 'react-router-dom';
+import { useCartCount } from '@/shared/hooks/useCartCount';
 import qualitySVG from '../../../shared/assets/icons/quality.svg';
-import { Rating } from '../../../shared/ui/Rating';
-import { ButtonBack } from '../../../shared/ui/ButtonBack';
-import { LikeButton } from '../../../shared/ui/LikeButton';
-import { ReviewList } from '../../../widgets/ReviewList/ui/ReviewList';
-import { WithProtection } from '../../../shared/store/HOCs/WithProtection';
+import truckSVG from '../../../shared/assets/icons/truck.svg';
+import { useAddToCart } from '../../../shared/hooks/useAddToCart';
+import { useCount } from '../../../shared/hooks/useCount';
+import { useToggleLike } from '../../../shared/hooks/useToggleLike';
 import { useGetProductQuery } from '../../../shared/store/api/productsApi';
-import { ProductCartCounter } from '../../../shared/ui/ProductCartCounter/ui/ProductCartCounter';
-import { useAppSelector } from '../../../shared/store/utils';
+import { WithProtection } from '../../../shared/store/HOCs/WithProtection';
 import { cartSelectors } from '../../../shared/store/slices/cart';
+import { useAppSelector } from '../../../shared/store/utils';
+import { ButtonBack } from '../../../shared/ui/ButtonBack';
 import { CartCounter } from '../../../shared/ui/CartCounter';
+import { LikeButton } from '../../../shared/ui/LikeButton';
+import { ProductCartCounter } from '../../../shared/ui/ProductCartCounter/ui/ProductCartCounter';
+import { Rating } from '../../../shared/ui/Rating';
+import { ReviewList } from '../../../widgets/ReviewList/ui/ReviewList';
+import s from './ProductPage.module.css';
 
 export const ProductPage = WithProtection(() => {
 	const location = useLocation();
@@ -23,11 +27,24 @@ export const ProductPage = WithProtection(() => {
 
 	const { data: product } = useGetProductQuery({ id: productId });
 
+	const { count, handleCount, handleCountMinus, handleCountPlus } = useCount();
+	const { addProductToCart } = useAddToCart();
+
 	if (!product) {
 		return <></>;
 	}
 
+	const { isLike, toggleLike } = useToggleLike({ product });
+
 	const { id, name, images, description, price, discount } = product;
+
+	const {
+		count: cartCount,
+		stock,
+		handleSetCount,
+		handleIncrement,
+		handleDecrement,
+	} = useCartCount(id);
 
 	const isProductInCart = !!cartProducts.find((p) => p.id === id);
 
@@ -54,12 +71,25 @@ export const ProductPage = WithProtection(() => {
 					</div>
 
 					{isProductInCart ? (
-						<CartCounter productId={id} />
+						<CartCounter
+							count={cartCount}
+							stock={stock}
+							handleSetCount={handleSetCount}
+							handleIncrement={handleIncrement}
+							handleDecrement={handleDecrement}
+						/>
 					) : (
-						<ProductCartCounter product={product} />
+						<ProductCartCounter
+							product={product}
+							count={count}
+							handleCount={handleCount}
+							handleCountMinus={handleCountMinus}
+							handleCountPlus={handleCountPlus}
+							addProductToCart={addProductToCart}
+						/>
 					)}
 
-					<LikeButton product={product} />
+					<LikeButton isLike={isLike} toggleLike={toggleLike} />
 					<div className={classNames(s['product__delivery'])}>
 						<img src={truckSVG} alt='truck' />
 						<div className={classNames(s['product__right'])}>

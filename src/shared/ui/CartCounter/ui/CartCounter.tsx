@@ -1,14 +1,24 @@
-import { useCount } from '../hooks/useCount';
-import s from './CartCounter.module.css';
 import classNames from 'classnames';
+import { ChangeEvent } from 'react';
+
+import s from './CartCounter.module.css';
 
 type TCartCounter = {
-	productId: string;
+	count: number;
+	stock: number;
+	handleSetCount: (e: ChangeEvent<HTMLInputElement>) => void;
+	handleIncrement: () => void;
+	handleDecrement: () => void;
 };
-export const CartCounter = ({ productId }: TCartCounter) => {
-	const { count, stock, handleSetCount, handleIncrement, handleDecrement } =
-		useCount(productId);
 
+//temp solution
+export const CartCounter = ({
+	count,
+	stock,
+	handleSetCount,
+	handleIncrement,
+	handleDecrement,
+}: TCartCounter) => {
 	return (
 		<>
 			<div className={classNames(s['button-count'])}>
