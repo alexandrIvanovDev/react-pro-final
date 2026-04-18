@@ -43,5 +43,6 @@ module.exports = {
 		'@typescript-eslint/explicit-module-boundary-types': 'off',
 		'import/no-internal-modules': 'off',
 		'@typescript-eslint/ban-ts-comment': 'off',
+		'react/display-name': 'off',
 	},
 };
