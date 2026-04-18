@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import { useCount } from '@/shared/hooks/useCount';
+import { useCount } from '@/shared/hooks';
 
 import s from './ProductCartCounter.module.css';
 

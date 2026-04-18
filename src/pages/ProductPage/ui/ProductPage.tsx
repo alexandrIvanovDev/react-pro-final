@@ -8,8 +8,8 @@ import { cartSelectors, useAddToCart } from '@/entities/cart';
 import { useGetProductQuery } from '@/entities/product';
 import qualitySVG from '@/shared/assets/icons/quality.svg';
 import truckSVG from '@/shared/assets/icons/truck.svg';
-import { useToggleLike } from '@/shared/hooks/useToggleLike';
-import { useAppSelector } from '@/shared/store/utils';
+import { useToggleLike } from '@/shared/hooks';
+import { useAppSelector } from '@/shared/store';
 import { LikeButton, ButtonBack, Rating } from '@/shared/ui';
 import s from './ProductPage.module.css';
 

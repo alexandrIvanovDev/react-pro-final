@@ -1,6 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 
-import { customBaseQuery } from '@/shared/store/api/config';
+import { customBaseQuery } from '@/shared/api';
 
 interface ProductsResponse {
 	products: Product[];

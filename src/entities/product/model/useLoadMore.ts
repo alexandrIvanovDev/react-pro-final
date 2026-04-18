@@ -1,6 +1,6 @@
 import { useCallback, useLayoutEffect } from 'react';
 
-import { useAppDispatch, useAppSelector } from '@/shared/store/utils';
+import { useAppDispatch, useAppSelector } from '@/shared/store';
 
 import { productsActions, productsSelectors } from './products';
 import { useProducts } from './useProducts';

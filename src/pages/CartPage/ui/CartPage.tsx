@@ -2,7 +2,7 @@ import classNames from 'classnames';
 
 import { CartAmount } from '@/features/cart';
 import { CartList, cartSelectors } from '@/entities/cart';
-import { useAppSelector } from '@/shared/store/utils';
+import { useAppSelector } from '@/shared/store';
 
 import s from './CartPage.module.css';
 

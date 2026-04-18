@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 
 import { userSelectors } from '@/entities/user';
-import { useAppSelector } from '@/shared/store/utils';
+import { useAppSelector } from '@/shared/store';
 import { isLiked } from '@/shared/utils';
 
 import { useGetProductsQuery } from '../api/productsApi';

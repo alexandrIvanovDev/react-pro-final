@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { CartCounter } from '@/features/cart';
 import { cartSelectors, useAddToCart } from '@/entities/cart';
 
-import { useToggleLike } from '@/shared/hooks/useToggleLike';
-import { useAppSelector } from '@/shared/store/utils';
+import { useToggleLike } from '@/shared/hooks';
+import { useAppSelector } from '@/shared/store';
 import { LikeButton, Price } from '@/shared/ui';
 import s from './Card.module.css';
 
