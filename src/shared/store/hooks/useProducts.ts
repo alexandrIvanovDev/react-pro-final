@@ -1,8 +1,8 @@
 import { useLocation } from 'react-router-dom';
+import { userSelectors } from '@/entities/user';
 import { isLiked } from '../../utils';
 import { useGetProductsQuery } from '../api/productsApi';
 import { productsSelectors } from '../slices/products';
-import { userSelectors } from '../slices/user';
 import { useAppSelector } from '../utils';
 
 export const useProducts = () => {

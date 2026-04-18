@@ -1,14 +1,16 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import { App } from '../../../../app';
-import { CartPage } from '../../../../pages/CartPage';
-import { FavoritesPage } from '../../../../pages/FavoritesPage';
-import { HomePage } from '../../../../pages/HomePage';
-import { NotFoundPage } from '../../../../pages/NotFoundPage';
-import { ProductPage } from '../../../../pages/ProductPage';
-import { ProfilePage } from '../../../../pages/ProfilePage';
-import { SignInPage } from '../../../../pages/SignInPage';
-import { SignUpPage } from '../../../../pages/SignUpPage';
+import { App } from '@/app';
+import { CartPage } from '@/pages/CartPage';
+import { FavoritesPage } from '@/pages/FavoritesPage';
+import { HomePage } from '@/pages/HomePage';
+import { NotFoundPage } from '@/pages/NotFoundPage';
+import { ProductPage } from '@/pages/ProductPage';
+import { ProfilePage } from '@/pages/ProfilePage';
+import { SignInPage } from '@/pages/SignInPage';
+import { SignUpPage } from '@/pages/SignUpPage';
+
+import { WithProtection } from '../WithProtection';
 
 export enum AppRoutes {
 	HOME = 'home',
@@ -32,6 +34,14 @@ export const RoutePath: Record<AppRoutes, `/${string}` | '*'> = {
 	[AppRoutes.NOT_FOUND]: '*',
 };
 
+const ProtectedHomePage = WithProtection(HomePage);
+const ProtectedFavoritesPage = WithProtection(FavoritesPage);
+const ProtectedProductPage = WithProtection(ProductPage);
+const ProtectedProfilePage = WithProtection(ProfilePage);
+const ProtectedCartPage = WithProtection(CartPage);
+const ProtectedSignUpPage = WithProtection(SignUpPage);
+const ProtectedSignInPage = WithProtection(SignInPage);
+
 export const router = createBrowserRouter([
 	{
 		path: RoutePath.home,
@@ -39,31 +49,31 @@ export const router = createBrowserRouter([
 		children: [
 			{
 				index: true,
-				element: <HomePage />,
+				element: <ProtectedHomePage />,
 			},
 			{
 				path: RoutePath.favorites,
-				element: <FavoritesPage />,
+				element: <ProtectedFavoritesPage />,
 			},
 			{
 				path: RoutePath.products,
-				element: <ProductPage />,
+				element: <ProtectedProductPage />,
 			},
 			{
 				path: RoutePath.profile,
-				element: <ProfilePage />,
+				element: <ProtectedProfilePage />,
 			},
 			{
 				path: RoutePath.cart,
-				element: <CartPage />,
+				element: <ProtectedCartPage />,
 			},
 			{
 				path: RoutePath.signup,
-				element: <SignUpPage />,
+				element: <ProtectedSignUpPage />,
 			},
 			{
 				path: RoutePath.signin,
-				element: <SignInPage />,
+				element: <ProtectedSignInPage />,
 			},
 
 			// last route

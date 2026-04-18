@@ -4,11 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { AuthFormValues, SignUpForm, useSignUpMutation } from '@/features/auth';
-import { WithProtection } from '@/shared/store/HOCs/WithProtection';
-import { userActions } from '@/shared/store/slices/user';
+import { userActions } from '@/entities/user';
 import { getMessageFromError } from '@/shared/utils';
 
-export const SignUpPage = WithProtection(() => {
+export const SignUpPage = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const [signUpRequestFn] = useSignUpMutation();
@@ -36,4 +35,4 @@ export const SignUpPage = WithProtection(() => {
 	};
 
 	return <SignUpForm onSubmit={submitHandler} />;
-});
+};

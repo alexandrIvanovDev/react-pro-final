@@ -4,11 +4,10 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { AuthFormValues, SignInForm, useSignInMutation } from '@/features/auth';
-import { WithProtection } from '@/shared/store/HOCs/WithProtection';
-import { userActions } from '@/shared/store/slices/user';
+import { userActions } from '@/entities/user';
 import { getMessageFromError } from '@/shared/utils';
 
-export const SignInPage = WithProtection(() => {
+export const SignInPage = () => {
 	const dispatch = useDispatch();
 	const location = useLocation();
 	const navigate = useNavigate();
@@ -39,5 +38,6 @@ export const SignInPage = WithProtection(() => {
 			);
 		}
 	};
+
 	return <SignInForm onSubmit={submitHandler} />;
-});
+};
