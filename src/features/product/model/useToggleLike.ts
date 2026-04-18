@@ -4,10 +4,10 @@ import {
 	useSetLikeProductMutation,
 } from '@/entities/product';
 import { userSelectors } from '@/entities/user';
-import { useAppSelector } from '../store/utils';
+import { useAppSelector } from '@/shared/store/utils';
 
 type Props = {
-	product: Product;
+	product?: Product;
 };
 
 export const useToggleLike = ({ product }: Props) => {

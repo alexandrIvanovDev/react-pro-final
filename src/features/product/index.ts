@@ -1,1 +1,2 @@
-export { ProductCartCounter } from './ProductCartCounter/ProductCartCounter';
+export { ProductCartCounter } from './ui/ProductCartCounter/ProductCartCounter';
+export { useToggleLike } from './model/useToggleLike';

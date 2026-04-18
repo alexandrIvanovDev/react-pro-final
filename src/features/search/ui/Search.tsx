@@ -1,7 +1,8 @@
+import { memo } from 'react';
 import { useProductsSearchForm } from '../model/useProductsSearchForm';
 import s from './Search.module.css';
 
-export const Search = () => {
+export const Search = memo(() => {
 	const { searchValue, setSearchValue } = useProductsSearchForm();
 
 	const handleClearSearchText = () => {
@@ -38,4 +39,4 @@ export const Search = () => {
 			)}
 		</form>
 	);
-};
+});
