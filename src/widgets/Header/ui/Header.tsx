@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 
 import { Search } from '@/features/search';
 import { cartSelectors } from '@/entities/cart';
+import { useProducts } from '@/entities/product';
 import { userSelectors } from '@/entities/user';
 import { ReactComponent as UserSvg } from '@/shared/assets/icons/user.svg';
-import { useProducts } from '@/shared/store/hooks/useProducts';
-import { useAppSelector } from '@/shared/store/utils';
+
+import { useAppSelector } from '@/shared/store';
 import { Logo } from '@/shared/ui';
 import { isLiked } from '@/shared/utils';
 

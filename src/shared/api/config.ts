@@ -3,7 +3,8 @@ import { fetchBaseQuery } from '@reduxjs/toolkit/query';
 import { RootState } from '@/app';
 
 export const customBaseQuery = fetchBaseQuery({
-	baseUrl: process.env.API_URL,
+	baseUrl: import.meta.env.VITE_API_URL || '',
+	// baseUrl: process.env.API_URL,
 	prepareHeaders: (headers, { getState }) => {
 		const accessToken = (getState() as RootState).user.accessToken;
 

@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { authApi } from '@/features/auth';
-import AppApi from '@/shared/api/ApiServise';
-import { productsApi } from '@/shared/store/api/productsApi';
+import { productsApi } from '@/entities/product';
+import { AppApi } from '@/shared/api';
 
 import { rootReducer } from './rootReducer';
 

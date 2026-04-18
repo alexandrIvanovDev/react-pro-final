@@ -89,12 +89,10 @@ const config = {
 		'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNseW9mNXFyZDAwMDhuZW9zdXdrNHk3aXIiLCJlbWFpbCI6ImVhYW1vc292QGdtYWlsLmNvbSIsInJvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNzIxMTM0Njk1LCJleHAiOjE3MjExMzUyOTV9.fOgTu9DEX24rHY6ZSl7IiqmqzCNpLZIrOm34xJLL2aI',
 };
 
-const AppApi = new Api({
+export const AppApi = new Api({
 	baseUrl: config.apiUrl,
 	headers: {
 		'content-type': 'application/json',
 		Authorization: `Bearer ${config.apiToken}`,
 	},
 });
-
-export default AppApi;

@@ -1,5 +1,4 @@
 export { ButtonBack } from './ButtonBack';
-export { CartCounter } from './CartCounter';
 export { LikeButton } from './LikeButton';
 export { LoadMore } from './LoadMore';
 export { Logo } from './Logo';

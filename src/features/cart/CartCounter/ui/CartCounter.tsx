@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 
+import { memo } from 'react';
 import { useCartCount } from '../model/useCartCount';
 import s from './CartCounter.module.css';
 
@@ -7,7 +8,7 @@ type Props = {
 	id: string;
 };
 
-export const CartCounter = ({ id }: Props) => {
+export const CartCounter = memo(({ id }: Props) => {
 	const { count, stock, handleSetCount, handleIncrement, handleDecrement } =
 		useCartCount(id);
 
@@ -32,4 +33,4 @@ export const CartCounter = ({ id }: Props) => {
 			</button>
 		</div>
 	);
-};
+});

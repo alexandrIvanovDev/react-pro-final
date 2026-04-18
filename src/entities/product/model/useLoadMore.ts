@@ -1,7 +1,9 @@
-import { RefObject, useCallback, useLayoutEffect } from 'react';
-import { useProducts } from '../store/hooks/useProducts';
-import { productsActions, productsSelectors } from '../store/slices/products';
-import { useAppDispatch, useAppSelector } from '../store/utils';
+import { useCallback, useLayoutEffect } from 'react';
+
+import { useAppDispatch, useAppSelector } from '@/shared/store';
+
+import { productsActions, productsSelectors } from './products';
+import { useProducts } from './useProducts';
 
 interface UseLoadMoreParams {
 	ref: React.Ref<any>;

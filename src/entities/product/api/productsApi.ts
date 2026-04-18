@@ -1,10 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
-import { customBaseQuery } from './config';
 
-export interface IErrorResponse {
-	data: { statusCode: number; message: string; error: string };
-	status: number;
-}
+import { customBaseQuery } from '@/shared/api';
 
 interface ProductsResponse {
 	products: Product[];

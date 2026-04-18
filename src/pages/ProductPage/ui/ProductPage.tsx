@@ -5,11 +5,11 @@ import { CartCounter } from '@/features/cart';
 
 import { ProductCartCounter } from '@/features/product';
 import { cartSelectors, useAddToCart } from '@/entities/cart';
-import qualitySVG from '@/shared/assets/icons/quality.svg';
-import truckSVG from '@/shared/assets/icons/truck.svg';
-import { useToggleLike } from '@/shared/hooks/useToggleLike';
-import { useGetProductQuery } from '@/shared/store/api/productsApi';
-import { useAppSelector } from '@/shared/store/utils';
+import { useGetProductQuery } from '@/entities/product';
+import { ReactComponent as QualitySVG } from '@/shared/assets/icons/quality.svg';
+import { ReactComponent as TruckSVG } from '@/shared/assets/icons/truck.svg';
+import { useToggleLike } from '@/shared/hooks';
+import { useAppSelector } from '@/shared/store';
 import { LikeButton, ButtonBack, Rating } from '@/shared/ui';
 import s from './ProductPage.module.css';
 
@@ -66,7 +66,7 @@ export const ProductPage = () => {
 
 					{/* <LikeButton isLike={isLike} toggleLike={toggleLike} /> */}
 					<div className={classNames(s['product__delivery'])}>
-						<img src={truckSVG} alt='truck' />
+						<TruckSVG />
 						<div className={classNames(s['product__right'])}>
 							<h3 className={classNames(s['product__name'])}>
 								Доставка по всему Миру!
@@ -84,7 +84,7 @@ export const ProductPage = () => {
 						</div>
 					</div>
 					<div className={classNames(s['product__delivery'])}>
-						<img src={qualitySVG} alt='quality' />
+						<QualitySVG />
 						<div className={classNames(s['product__right'])}>
 							<h3 className={classNames(s['product__name'])}>
 								Гарантия качества

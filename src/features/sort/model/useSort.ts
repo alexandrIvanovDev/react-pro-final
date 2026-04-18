@@ -1,14 +1,12 @@
-import {
-	productsActions,
-	productsSelectors,
-} from '@/shared/store/slices/products';
-import { useAppDispatch, useAppSelector } from '@/shared/store/utils';
+import { productsActions, productsSelectors } from '@/entities/product';
+import { useAppDispatch, useAppSelector } from '@/shared/store';
 
 interface SortParams {
 	title: string;
 	value: Sort;
 	href: string;
 }
+
 export const useSort = () => {
 	const dispatch = useAppDispatch();
 

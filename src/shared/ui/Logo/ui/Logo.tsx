@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
-import LogoIcon from '../assets/logo.svg';
+
+import { ReactComponent as LogoIcon } from '../assets/logo.svg';
 import s from './Logo.module.css';
 
 export const Logo = () => (
 	<Link to='/'>
-		<img className={s['logo__pic']} src={LogoIcon} alt='Логотип компании' />
+		<LogoIcon className={s['logo__pic']} />
 	</Link>
 );

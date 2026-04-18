@@ -1,10 +1,9 @@
 import { toast } from 'react-toastify';
-import { userSelectors } from '@/entities/user';
 import {
-	IErrorResponse,
 	useDeleteLikeProductMutation,
 	useSetLikeProductMutation,
-} from '../store/api/productsApi';
+} from '@/entities/product';
+import { userSelectors } from '@/entities/user';
 import { useAppSelector } from '../store/utils';
 
 type Props = {
@@ -18,7 +17,7 @@ export const useToggleLike = ({ product }: Props) => {
 	const [setLike] = useSetLikeProductMutation();
 	const [deleteLike] = useDeleteLikeProductMutation();
 
-	const isLike = product?.likes?.some((l) => l.userId === user?.id);
+	const isLike = product?.likes?.some((l) => l?.userId === user?.id);
 
 	const toggleLike = async () => {
 		if (!accessToken) {
