@@ -6,6 +6,7 @@ interface SortParams {
 	value: Sort;
 	href: string;
 }
+
 export const useSort = () => {
 	const dispatch = useAppDispatch();
 

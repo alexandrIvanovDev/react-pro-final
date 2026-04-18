@@ -17,7 +17,7 @@ export const useToggleLike = ({ product }: Props) => {
 	const [setLike] = useSetLikeProductMutation();
 	const [deleteLike] = useDeleteLikeProductMutation();
 
-	const isLike = product?.likes?.some((l) => l.userId === user?.id);
+	const isLike = product?.likes?.some((l) => l?.userId === user?.id);
 
 	const toggleLike = async () => {
 		if (!accessToken) {

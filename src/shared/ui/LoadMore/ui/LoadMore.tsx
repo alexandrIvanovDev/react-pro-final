@@ -1,5 +1,4 @@
 import { Alert, CircularProgress, Stack } from '@mui/material';
-import { RefObject } from 'react';
 
 type Props = {
 	ref: React.Ref<HTMLDivElement>;
