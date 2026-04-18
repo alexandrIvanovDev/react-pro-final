@@ -3,12 +3,12 @@ import { useLocation } from 'react-router-dom';
 import { ReviewList } from '@/widgets/ReviewList/ui/ReviewList';
 import { CartCounter } from '@/features/cart';
 
-import { ProductCartCounter } from '@/features/product';
+import { ProductCartCounter, useToggleLike } from '@/features/product';
 import { cartSelectors, useAddToCart } from '@/entities/cart';
 import { useGetProductQuery } from '@/entities/product';
 import { ReactComponent as QualitySVG } from '@/shared/assets/icons/quality.svg';
 import { ReactComponent as TruckSVG } from '@/shared/assets/icons/truck.svg';
-import { useToggleLike } from '@/shared/hooks';
+
 import { useAppSelector } from '@/shared/store';
 import { LikeButton, ButtonBack, Rating } from '@/shared/ui';
 import s from './ProductPage.module.css';
@@ -24,10 +24,9 @@ export const ProductPage = () => {
 
 	const { addProductToCart } = useAddToCart();
 
-	if (!product) return null;
+	const { isLike, toggleLike } = useToggleLike({ product });
 
-	//TODO:
-	// const { isLike, toggleLike } = useToggleLike({ product });
+	if (!product) return null;
 
 	const { id, name, images, description, price, discount } = product;
 
@@ -64,7 +63,7 @@ export const ProductPage = () => {
 						/>
 					)}
 
-					{/* <LikeButton isLike={isLike} toggleLike={toggleLike} /> */}
+					<LikeButton isLike={!!isLike} toggleLike={toggleLike} />
 					<div className={classNames(s['product__delivery'])}>
 						<TruckSVG />
 						<div className={classNames(s['product__right'])}>

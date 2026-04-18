@@ -2,9 +2,9 @@ import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 
 import { CartCounter } from '@/features/cart';
+import { useToggleLike } from '@/features/product';
 import { cartSelectors, useAddToCart } from '@/entities/cart';
 
-import { useToggleLike } from '@/shared/hooks';
 import { useAppSelector } from '@/shared/store';
 import { LikeButton, Price } from '@/shared/ui';
 import s from './Card.module.css';
@@ -12,7 +12,7 @@ import s from './Card.module.css';
 type CardProps = {
 	product: Product;
 };
-
+//TODO: widget or props?
 export const Card = ({ product }: CardProps) => {
 	const { discount, price, name, tags, id, images } = product;
 

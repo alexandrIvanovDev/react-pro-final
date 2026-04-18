@@ -10,7 +10,9 @@ type CardListProps = {
 
 export const CardList = ({ title, products }: CardListProps) => {
 	const list = useMemo(() => {
-		return products.map((product) => <Card key={product.id} {...product} />);
+		return products.map((product) => (
+			<Card key={product.id} product={product} />
+		));
 	}, [products]);
 
 	if (!products.length) {

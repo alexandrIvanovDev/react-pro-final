@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { ReactComponent as Star } from '../../../assets/icons/star.svg';
 
 type TRating = {
@@ -5,8 +6,9 @@ type TRating = {
 	isEdit?: boolean;
 	onChange?: (rating: number) => void;
 };
-export const Rating = ({ rating = 0, isEdit = false, onChange }: TRating) => {
-	return (
+
+export const Rating = memo(
+	({ rating = 0, isEdit = false, onChange }: TRating) => (
 		<div>
 			{[...Array(5)].map((_e, i) => (
 				<span key={i} style={{ cursor: isEdit ? 'pointer' : 'default' }}>
@@ -17,5 +19,5 @@ export const Rating = ({ rating = 0, isEdit = false, onChange }: TRating) => {
 				</span>
 			))}
 		</div>
-	);
-};
+	)
+);

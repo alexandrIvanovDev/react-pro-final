@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 
+import { memo, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { cartActions, CartItem } from '@/entities/cart';
@@ -10,12 +11,15 @@ type CartListProps = {
 	products: CartProduct[];
 };
 
-export const CartList = ({ products }: CartListProps) => {
+export const CartList = memo(({ products }: CartListProps) => {
 	const dispatch = useDispatch();
 
-	const deleteProductFromCart = (id: string) => {
-		dispatch(cartActions.deleteCartProduct(id));
-	};
+	const deleteProductFromCart = useCallback(
+		(id: string) => {
+			dispatch(cartActions.deleteCartProduct(id));
+		},
+		[dispatch]
+	);
 
 	return (
 		<div className={classNames(s['cart-list'])}>
@@ -28,4 +32,4 @@ export const CartList = ({ products }: CartListProps) => {
 			))}
 		</div>
 	);
-};
+});
