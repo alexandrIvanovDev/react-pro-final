@@ -2,9 +2,8 @@ import { useRef } from 'react';
 
 import { Sort } from '@/features/sort';
 import { CardList } from '@/entities/card';
-import { useLoadMore } from '@/shared/hooks/useLoadMore';
+import { useLoadMore, useProducts } from '@/entities/product';
 import { WithQuery } from '@/shared/store/HOCs/WithQuery';
-import { useProducts } from '@/shared/store/hooks/useProducts';
 import { LoadMore } from '@/shared/ui';
 
 const CardListWithQuery = WithQuery(CardList);

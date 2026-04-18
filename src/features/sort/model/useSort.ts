@@ -1,7 +1,4 @@
-import {
-	productsActions,
-	productsSelectors,
-} from '@/shared/store/slices/products';
+import { productsActions, productsSelectors } from '@/entities/product';
 import { useAppDispatch, useAppSelector } from '@/shared/store/utils';
 
 interface SortParams {

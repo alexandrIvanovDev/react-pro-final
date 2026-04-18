@@ -1,6 +1,6 @@
 import { CardList } from '@/entities/card';
+import { useProducts } from '@/entities/product';
 import { WithQuery } from '@/shared/store/HOCs/WithQuery';
-import { useProducts } from '@/shared/store/hooks/useProducts';
 import { ButtonBack } from '@/shared/ui';
 
 const CardListWithQuery = WithQuery(CardList);

@@ -125,4 +125,9 @@ declare global {
 		value: Sort;
 		href: string;
 	};
+
+	type IErrorResponse = {
+		data: { statusCode: number; message: string; error: string };
+		status: number;
+	};
 }

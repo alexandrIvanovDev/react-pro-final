@@ -22,9 +22,6 @@ export const Card = ({ product }: CardProps) => {
 
 	const { toggleLike, isLike } = useToggleLike({ product });
 
-	console.log('isLike', isLike);
-	console.log('product', product);
-
 	if (!id) return null;
 
 	return (

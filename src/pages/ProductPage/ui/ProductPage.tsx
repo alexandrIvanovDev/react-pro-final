@@ -5,10 +5,10 @@ import { CartCounter } from '@/features/cart';
 
 import { ProductCartCounter } from '@/features/product';
 import { cartSelectors, useAddToCart } from '@/entities/cart';
+import { useGetProductQuery } from '@/entities/product';
 import qualitySVG from '@/shared/assets/icons/quality.svg';
 import truckSVG from '@/shared/assets/icons/truck.svg';
 import { useToggleLike } from '@/shared/hooks/useToggleLike';
-import { useGetProductQuery } from '@/shared/store/api/productsApi';
 import { useAppSelector } from '@/shared/store/utils';
 import { LikeButton, ButtonBack, Rating } from '@/shared/ui';
 import s from './ProductPage.module.css';
