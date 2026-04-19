@@ -33,7 +33,7 @@ export const SignUpForm = ({ onSubmit }: Props) => {
 	});
 
 	return (
-		<Container component='main' maxWidth='xs'>
+		<Container component='main' maxWidth='xs' style={{ height: '100%' }}>
 			<Box
 				sx={{
 					marginTop: 8,
