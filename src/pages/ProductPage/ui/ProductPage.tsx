@@ -33,7 +33,7 @@ export const ProductPage = () => {
 	const isProductInCart = !!cartProducts?.find((p) => p.id === id);
 
 	return (
-		<>
+		<div style={{ padding: '24px' }}>
 			<ButtonBack />
 			<h1 className={classNames(s['header-title'])}>{name}</h1>
 			<p className='acticul'>
@@ -130,6 +130,6 @@ export const ProductPage = () => {
 				</div>
 			</div>
 			<ReviewList product={product} />
-		</>
+		</div>
 	);
 };

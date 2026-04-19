@@ -12,7 +12,7 @@ import s from './Card.module.css';
 type CardProps = {
 	product: Product;
 };
-//TODO: widget or props?
+
 export const Card = ({ product }: CardProps) => {
 	const { discount, price, name, tags, id, images } = product;
 
@@ -44,7 +44,7 @@ export const Card = ({ product }: CardProps) => {
 					s['card__sticky'],
 					s['card__sticky_type_top-right']
 				)}>
-				<LikeButton isLike={isLike} toggleLike={toggleLike} />
+				<LikeButton isLike={!!isLike} toggleLike={toggleLike} />
 			</div>
 			<Link className={s['card__link']} to={`/products/${id}`}>
 				<img

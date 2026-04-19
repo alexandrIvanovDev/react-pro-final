@@ -1,4 +1,4 @@
-import { CardList } from '@/entities/card';
+import { CardList } from '@/widgets/Card';
 import { useProducts } from '@/entities/product';
 import { WithQuery } from '@/shared/lib';
 import { ButtonBack } from '@/shared/ui';
@@ -10,7 +10,6 @@ export const FavoritesPage = () => {
 
 	return (
 		<>
-			<br />
 			<ButtonBack />
 			<CardListWithQuery
 				title='Избранные'
