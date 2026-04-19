@@ -1,5 +1,6 @@
 .card-list {
 	display: block;
+	padding: 24px;
 }
 
 .card-list__title {

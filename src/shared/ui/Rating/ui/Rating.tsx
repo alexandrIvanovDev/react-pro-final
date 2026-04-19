@@ -9,7 +9,7 @@ type TRating = {
 
 export const Rating = memo(
 	({ rating = 0, isEdit = false, onChange }: TRating) => (
-		<>
+		<div>
 			{[...Array(5)].map((_e, i) => (
 				<span key={i} style={{ cursor: isEdit ? 'pointer' : 'default' }}>
 					<Star
@@ -18,6 +18,6 @@ export const Rating = memo(
 					/>
 				</span>
 			))}
-		</>
+		</div>
 	)
 );
