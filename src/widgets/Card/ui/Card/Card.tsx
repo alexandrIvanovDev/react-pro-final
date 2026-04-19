@@ -1,9 +1,8 @@
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 
-import { CartCounter } from '@/features/cart';
 import { useToggleLike } from '@/features/product';
-import { cartSelectors, useAddToCart } from '@/entities/cart';
+import { CartCounter, cartSelectors, useAddToCart } from '@/entities/cart';
 
 import { useAppSelector } from '@/shared/store';
 import { LikeButton, Price } from '@/shared/ui';

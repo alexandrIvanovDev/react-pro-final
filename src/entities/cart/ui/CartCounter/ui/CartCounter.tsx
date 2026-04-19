@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-
 import { memo } from 'react';
+
 import { useCartCount } from '../model/useCartCount';
 import s from './CartCounter.module.css';
 

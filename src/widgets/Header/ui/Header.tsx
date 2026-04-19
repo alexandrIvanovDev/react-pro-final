@@ -14,8 +14,8 @@ import { isLiked } from '@/shared/utils';
 import s from './Header.module.css';
 
 export const Header = () => {
-	const { products } = useProducts();
 	const user = useAppSelector(userSelectors.getUser);
+	const { products } = useProducts(user?.id ?? '');
 	const cartProducts = useAppSelector(cartSelectors.getCartProducts);
 
 	const likeCount = products.filter((product) =>

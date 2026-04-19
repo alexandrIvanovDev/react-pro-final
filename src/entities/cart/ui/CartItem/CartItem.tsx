@@ -2,8 +2,9 @@ import classNames from 'classnames';
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
 
-import { CartCounter } from '@/features/cart';
 import { ReactComponent as TrashIcon } from '@/shared/assets/icons/trash.svg';
+
+import { CartCounter } from '../CartCounter';
 
 import s from './CartItem.module.css';
 

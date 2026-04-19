@@ -6,12 +6,13 @@ import { productsActions, productsSelectors } from './products';
 import { useProducts } from './useProducts';
 
 interface UseLoadMoreParams {
-	ref: React.Ref<any>;
+	ref: React.Ref<HTMLDivElement>;
+	userId: string;
 }
-export const useLoadMore = ({ ref }: UseLoadMoreParams) => {
+export const useLoadMore = ({ ref, userId }: UseLoadMoreParams) => {
 	const dispatch = useAppDispatch();
 
-	const { products, isFetching, productsCount } = useProducts();
+	const { products, isFetching, productsCount } = useProducts(userId ?? '');
 
 	const page = useAppSelector(productsSelectors.getPage);
 
