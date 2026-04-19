@@ -18,12 +18,17 @@
 
 Проект организован согласно Feature-Sliced Design. Слои расположены по зависимости снизу вверх (`shared` → `entities` → `features` → `widgets` → `pages` → `app`).
 
-app - Точка входа, провайдеры (Store, Router), глобальные стили, инициализация.
-pages - Страницы приложения.
-widgets - Самостоятельные блоки интерфейса (Header, Footer, Card).
-features - Пользовательские сценарии и бизнес-логика (Auth, Search, Sort).
-entities - Бизнес-сущности (User, Product, Cart).
-shared - UI-kit, утилиты, хуки, api, типы.
+##### app - Точка входа, провайдеры (Store, Router), глобальные стили, инициализация.
+
+##### pages - Страницы приложения.
+
+##### widgets - Самостоятельные блоки интерфейса (Header, Footer, Card).
+
+##### features - Пользовательские сценарии и бизнес-логика (Auth, Search, Sort).
+
+##### entities - Бизнес-сущности (User, Product, Cart).
+
+##### shared - UI-kit, утилиты, хуки, api, типы.
 
 ## 3. Сравнение сборок
 
