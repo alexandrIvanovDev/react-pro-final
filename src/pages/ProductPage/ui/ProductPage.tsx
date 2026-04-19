@@ -1,16 +1,15 @@
 import classNames from 'classnames';
 import { useLocation } from 'react-router-dom';
 import { ReviewList } from '@/widgets/ReviewList/ui/ReviewList';
-import { CartCounter } from '@/features/cart';
 
 import { ProductCartCounter, useToggleLike } from '@/features/product';
-import { cartSelectors, useAddToCart } from '@/entities/cart';
+import { CartCounter, cartSelectors, useAddToCart } from '@/entities/cart';
 import { useGetProductQuery } from '@/entities/product';
 import { ReactComponent as QualitySVG } from '@/shared/assets/icons/quality.svg';
 import { ReactComponent as TruckSVG } from '@/shared/assets/icons/truck.svg';
-
 import { useAppSelector } from '@/shared/store';
 import { LikeButton, ButtonBack, Rating } from '@/shared/ui';
+
 import s from './ProductPage.module.css';
 
 export const ProductPage = () => {
@@ -33,7 +32,7 @@ export const ProductPage = () => {
 	const isProductInCart = !!cartProducts?.find((p) => p.id === id);
 
 	return (
-		<>
+		<div style={{ padding: '24px' }}>
 			<ButtonBack />
 			<h1 className={classNames(s['header-title'])}>{name}</h1>
 			<p className='acticul'>
@@ -130,6 +129,6 @@ export const ProductPage = () => {
 				</div>
 			</div>
 			<ReviewList product={product} />
-		</>
+		</div>
 	);
 };

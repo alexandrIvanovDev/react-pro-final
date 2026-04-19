@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
-import { Card } from '@/entities/card';
 
+import { Card } from '../Card/Card';
 import s from './CardList.module.css';
 
 type CardListProps = {

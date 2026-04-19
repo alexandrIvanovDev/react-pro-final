@@ -1,9 +1,8 @@
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 
-import { CartCounter } from '@/features/cart';
 import { useToggleLike } from '@/features/product';
-import { cartSelectors, useAddToCart } from '@/entities/cart';
+import { CartCounter, cartSelectors, useAddToCart } from '@/entities/cart';
 
 import { useAppSelector } from '@/shared/store';
 import { LikeButton, Price } from '@/shared/ui';
@@ -12,7 +11,7 @@ import s from './Card.module.css';
 type CardProps = {
 	product: Product;
 };
-//TODO: widget or props?
+
 export const Card = ({ product }: CardProps) => {
 	const { discount, price, name, tags, id, images } = product;
 
@@ -44,7 +43,7 @@ export const Card = ({ product }: CardProps) => {
 					s['card__sticky'],
 					s['card__sticky_type_top-right']
 				)}>
-				<LikeButton isLike={isLike} toggleLike={toggleLike} />
+				<LikeButton isLike={!!isLike} toggleLike={toggleLike} />
 			</div>
 			<Link className={s['card__link']} to={`/products/${id}`}>
 				<img

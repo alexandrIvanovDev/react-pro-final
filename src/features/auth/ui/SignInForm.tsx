@@ -13,7 +13,7 @@ import { Controller, useForm } from 'react-hook-form';
 
 import { Link as RouterLink } from 'react-router-dom';
 import type { AuthFormValues } from '../model/types';
-import { signInFormSchema } from '../model/validator';
+import { authFormSchema } from '../model/validator';
 
 type Props = {
 	onSubmit: (data: AuthFormValues) => void;
@@ -29,11 +29,11 @@ export const SignInForm = ({ onSubmit }: Props) => {
 			email: '',
 			password: '',
 		},
-		resolver: yupResolver(signInFormSchema),
+		resolver: yupResolver(authFormSchema),
 	});
 
 	return (
-		<Container component='main' maxWidth='xs'>
+		<Container component='main' maxWidth='xs' style={{ height: '100%' }}>
 			<Box
 				sx={{
 					marginTop: 8,

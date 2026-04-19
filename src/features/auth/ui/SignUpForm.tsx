@@ -13,7 +13,7 @@ import { Controller, useForm } from 'react-hook-form';
 import { Link as RouterLink } from 'react-router-dom';
 
 import type { AuthFormValues } from '../model/types';
-import { signUpFormSchema } from '../model/validator';
+import { authFormSchema } from '../model/validator';
 
 type Props = {
 	onSubmit: (data: AuthFormValues) => void;
@@ -29,11 +29,11 @@ export const SignUpForm = ({ onSubmit }: Props) => {
 			email: '',
 			password: '',
 		},
-		resolver: yupResolver(signUpFormSchema),
+		resolver: yupResolver(authFormSchema),
 	});
 
 	return (
-		<Container component='main' maxWidth='xs'>
+		<Container component='main' maxWidth='xs' style={{ height: '100%' }}>
 			<Box
 				sx={{
 					marginTop: 8,
@@ -52,9 +52,6 @@ export const SignUpForm = ({ onSubmit }: Props) => {
 					onSubmit={handleSubmit(onSubmit)}
 					noValidate
 					sx={{ mt: 1 }}>
-					{/* Чтобы подружить react-hook-form с MUI используем компонент Controller
-              смотри доку https://react-hook-form.com/get-started#IntegratingwithUIlibraries
-           */}
 					<Controller
 						name='email'
 						control={control}
@@ -91,8 +88,6 @@ export const SignUpForm = ({ onSubmit }: Props) => {
 
 					<LoadingButton
 						type='submit'
-						// кнопка становится недоступной после первой валидации (если есть ошибки)
-						// или когда выполняется отправка (чтобы не дать пользователю отправить форму несколько раз)
 						disabled={isSubmitted && (!isValid || isSubmitting)}
 						loading={isSubmitting}
 						fullWidth

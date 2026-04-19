@@ -1,13 +1,12 @@
 import { useLocation } from 'react-router-dom';
 
-import { userSelectors } from '@/entities/user';
 import { useAppSelector } from '@/shared/store';
 import { isLiked } from '@/shared/utils';
 
 import { useGetProductsQuery } from '../api/productsApi';
 import { productsSelectors } from './products';
 
-export const useProducts = () => {
+export const useProducts = (userId: string) => {
 	const { pathname } = useLocation();
 
 	const { searchText, page, perPage, sort } = useAppSelector(
@@ -24,10 +23,10 @@ export const useProducts = () => {
 
 	let products = data?.products || [];
 
-	const user = useAppSelector(userSelectors.getUser);
+	// const user = useAppSelector(userSelectors.getUser);
 
 	if (isFavoritesPage) {
-		products = products.filter((product) => isLiked(product.likes, user?.id));
+		products = products.filter((product) => isLiked(product.likes, userId));
 	}
 
 	const productsCount = data?.length || 0;
